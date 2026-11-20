@@ -1,0 +1,12 @@
+{
+  "name": "roue-des-questions",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Animation de stand : roue de questions par thème pour « Le Goût du Réglisse salé ». Page statique, s’ouvre directement sans serveur.",
+  "scripts": {
+    "template": "node tools/build-template.js"
+  },
+  "devDependencies": {
+    "exceljs": "4.4.0"
+  }
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Roue des questions · Le Goût du Réglisse salé</title>
+  <meta name="theme-color" content="#2D1F7A">
+
+  <!-- Mode « application » quand la page est ajoutée à l'écran d'accueil de l'iPad -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Roue">
+  <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/screens.css">
+</head>
+<body>
+  <main id="app" class="app"></main>
+
+  <noscript>Cette application a besoin de JavaScript.</noscript>
+
+  <!-- ExcelJS (MIT) : lecture et écriture des fichiers .xlsx, expose window.ExcelJS -->
+  <script src="vendor/exceljs.min.js"></script>
+
+  <!-- Scripts classiques (pas de modules ES) : la page marche aussi ouverte en file://.
+       L'ordre compte : chaque fichier utilise ceux chargés avant lui. -->
+  <script src="js/namespace.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/lib/text.js"></script>
+  <script src="js/lib/random.js"></script>
+  <script src="js/lib/dom.js"></script>
+  <script src="js/lib/gestures.js"></script>
+  <script src="js/ui/icons.js"></script>
+  <script src="js/data/schema.js"></script>
+  <script src="js/data/csv.js"></script>
+  <script src="js/data/xlsx.js"></script>
+  <script src="js/data/store.js"></script>
+  <script src="js/data/files.js"></script>
+  <script src="js/ui/components/parts.js"></script>
+  <script src="js/ui/components/wheel.js"></script>
+  <script src="js/ui/screens/home.js"></script>
+  <script src="js/ui/screens/wheel.js"></script>
+  <script src="js/ui/screens/bookmark.js"></script>
+  <script src="js/ui/screens/admin.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

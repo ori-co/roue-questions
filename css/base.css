@@ -1,0 +1,94 @@
+/* Variables, remise à zéro et typographie de base. */
+
+:root {
+  --ink: #2A2624;
+  --muted: #5E5650;
+  --paper: #FBF7EE;
+  --ground: #F3EDE3;
+  --line: #E2D8C8;
+  --help: #714FFC;
+  --font-sans: 'Josefin Sans', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-hand: 'Caveat', 'Bradley Hand', cursive;
+  --radius: 10px;
+  --shadow-card: 0 8px 22px rgba(42, 38, 36, 0.22);
+  --shadow-head: 0 4px 10px rgba(31, 26, 40, 0.35);
+  /* Papier Seyès (cahier d'écolier), repris des marque-pages */
+  --seyes:
+    linear-gradient(90deg, transparent 14px, rgba(214, 90, 90, 0.55) 14px, rgba(214, 90, 90, 0.55) 15.5px, transparent 15.5px),
+    repeating-linear-gradient(0deg, rgba(90, 120, 180, 0.3) 0, rgba(90, 120, 180, 0.3) 1px, transparent 1px, transparent 30px),
+    repeating-linear-gradient(0deg, rgba(90, 120, 180, 0.13) 0, rgba(90, 120, 180, 0.13) 1px, transparent 1px, transparent 7.5px),
+    repeating-linear-gradient(90deg, rgba(90, 120, 180, 0.14) 0, rgba(90, 120, 180, 0.14) 1px, transparent 1px, transparent 30px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.4;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  overscroll-behavior: none;
+  /* Évite le menu « copier » et la loupe lors des appuis longs */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+input, textarea, select { -webkit-user-select: text; user-select: text; font: inherit; color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:disabled { cursor: default; }
+img { display: block; max-width: 100%; }
+h1, h2, p { margin: 0; }
+
+.app {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 40px;
+  font-size: clamp(28px, 4.2vw, 42px);
+  line-height: 1.1;
+  text-align: center;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 18px;
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.center-message {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 20px;
+  padding: 32px;
+  text-align: center;
+}
