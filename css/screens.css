@@ -224,6 +224,7 @@
 .admin__empty { color: var(--muted); padding: 16px 4px; }
 .admin__list { display: flex; flex-direction: column; border: 1.5px solid var(--line); border-radius: var(--radius); background: var(--paper); overflow: hidden; }
 .admin__list-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px; }
+.admin__foot-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 .dl { position: relative; }
 .dl__menu {
   position: absolute; right: 0; bottom: calc(100% + 6px); z-index: 5; min-width: 180px;

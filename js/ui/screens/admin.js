@@ -165,6 +165,17 @@
     });
     const downloadBox = h('div', { class: 'dl' }, dlBtn, menu);
 
+    const clearBtn = button('Supprimer toutes les questions', 'supprimer', () => {
+      if (!store.getState().questions.length) return;
+      if (!window.confirm('Supprimer TOUTES les questions ? Cette action est irréversible : pensez à télécharger la liste avant.')) return;
+      store.clearAll();
+      showErrors([]);
+      renderList();
+      refreshSummary();
+      toast('Toutes les questions ont été supprimées.');
+    }, 'ghost');
+    const footActions = h('div', { class: 'admin__foot-actions' }, clearBtn, downloadBox);
+
     function renderList() {
       const questions = store.getState().questions;
       intro.hidden = questions.length > 0;
@@ -181,7 +192,7 @@
           const area = list.querySelector(`textarea[data-id="${q.id}"]`);
           if (area) { area.scrollIntoView({ block: 'center' }); area.focus(); }
         }, 'ghost'),
-        downloadBox);
+        footActions);
       mount(list,
         questions.length ? header : null,
         questions.length ? sortedQuestions().map((q) => questionRow(q, renderList)) : h('p', { class: 'admin__empty' }, 'Aucune question pour le moment.'),

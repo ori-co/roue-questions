@@ -103,6 +103,13 @@
     touch();
   }
 
+  /** Supprime toutes les questions et les tirages. */
+  function clearAll() {
+    state.questions = [];
+    state.drawn = [];
+    touch();
+  }
+
   function markDrawn(id) {
     if (!state.drawn.includes(id)) state.drawn.push(id);
     save();
@@ -114,5 +121,5 @@
     emit();
   }
 
-  RQ.store = { init, subscribe, getState, hasQuestions, filledQuestions, questionsOf, replaceAll, updateQuestion, addQuestion, removeQuestion, markDrawn, resetDrawn };
+  RQ.store = { init, subscribe, getState, hasQuestions, filledQuestions, questionsOf, replaceAll, updateQuestion, addQuestion, removeQuestion, clearAll, markDrawn, resetDrawn };
 })();
