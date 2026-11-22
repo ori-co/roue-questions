@@ -7,7 +7,7 @@
 
   const { themeById, categoryById, CATEGORIES } = RQ.config;
   const { h, mount } = RQ.dom;
-  const { randomInt } = RQ.random;
+  const { randomInt, shuffle } = RQ.random;
   const { createWheel } = RQ.wheelView;
   const { topbar, themeTag, badge, button } = RQ.parts;
   const store = RQ.store;
@@ -65,7 +65,8 @@
    */
   function render(root, params, nav) {
     const theme = themeById(params.themeId);
-    const questions = store.questionsOf(theme.id, true);
+    // Ordre des quartiers aléatoire à chaque ouverture de la roue.
+    const questions = shuffle(store.questionsOf(theme.id, true));
     const drawn = new Set(store.getState().drawn);
 
     const header = topbar('Thèmes', () => nav.go('home'), themeTag(theme));
@@ -96,7 +97,12 @@
       actions.classList.remove('is-visible');
       card.setSpinning(true);
       const index = chooseIndex(questions, currentId);
-      await wheel.spinTo(index, (i) => card.show(questions[i]));
+      RQ.sound.spin();
+      await wheel.spinTo(index, (i) => {
+        card.show(questions[i]);
+        RQ.sound.tick();
+      });
+      RQ.sound.reveal();
       const q = questions[index];
       currentId = q.id;
       store.markDrawn(q.id);

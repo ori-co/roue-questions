@@ -25,5 +25,15 @@
     return list[randomInt(list.length)];
   }
 
-  RQ.random = { randomInt, pick };
+  /** Copie mélangée du tableau (Fisher-Yates). */
+  function shuffle(list) {
+    const a = list.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = randomInt(i + 1);
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  RQ.random = { randomInt, pick, shuffle };
 })();
